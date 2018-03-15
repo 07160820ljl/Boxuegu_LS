@@ -8,12 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
-import cn.edu.gdmec.android.boxuegu.MainActivity;
 import cn.edu.gdmec.android.boxuegu.R;
 
 public class SplashActivity extends AppCompatActivity {

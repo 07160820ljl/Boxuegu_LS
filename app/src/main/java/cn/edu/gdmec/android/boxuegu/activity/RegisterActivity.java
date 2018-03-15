@@ -87,6 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
     /**
      * 获取控件中的字符串
      */
