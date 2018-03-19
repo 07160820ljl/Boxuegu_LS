@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -87,10 +88,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initBottomBar(){
         mBottomlayout = (LinearLayout) findViewById(R.id.main_bottom_bar);
         mCourseBtn = findViewById(R.id.bottom_bar_course_btn);
-        mExercisesBtn = findViewById(R.id.bottom_bar_course_btn);
+        mExercisesBtn = findViewById(R.id.bottom_bar_exercises_btn);
         mMyInfoBtn = findViewById(R.id.bottom_bar_myinfo_btn);
         tv_course = (TextView) findViewById(R.id.bottom_bar_text_course);
-        tv_exercises = (TextView) findViewById(R.id.bottom_bar_text_course);
+        tv_exercises = (TextView) findViewById(R.id.bottom_bar_text_exercises);
         tv_myInfo = (TextView)findViewById(R.id.bottom_bar_text_myinfo);
         iv_myInfo = (ImageView) findViewById(R.id.bottom_bar_image_myinfo);
         iv_exercises = (ImageView) findViewById(R.id.bottom_bar_image_exercises);
@@ -159,19 +160,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 iv_course.setImageResource(R.drawable.main_course_icon_selected);
                 tv_course.setTextColor(Color.parseColor("#0097E7"));
                 rl_title_bar.setVisibility(View.VISIBLE);
-                tv_myInfo.setText("博学谷课程");
+                tv_main_title.setText("博学谷课程");
                 break;
             case 1:
-                mCourseBtn.setSelected(true);
-                iv_course.setImageResource(R.drawable.main_exercises_icon_selected);
-                tv_course.setTextColor(Color.parseColor("#0097E7"));
+                mExercisesBtn.setSelected(true);
+                iv_exercises.setImageResource(R.drawable.main_exercises_icon_selected);
+                tv_exercises.setTextColor(Color.parseColor("#0097E7"));
                 rl_title_bar.setVisibility(View.VISIBLE);
-                tv_myInfo.setText("博学谷习题");
+                tv_main_title.setText("博学谷习题");
                 break;
             case 2:
-                mCourseBtn.setSelected(true);
-                iv_course.setImageResource(R.drawable.main_my_icon_selected);
-                tv_course.setTextColor(Color.parseColor("#0097E7"));
+                mMyInfoBtn.setSelected(true);
+                iv_myInfo.setImageResource(R.drawable.main_my_icon_selected);
+                tv_myInfo.setTextColor(Color.parseColor("#0097E7"));
                 rl_title_bar.setVisibility(View.GONE);
                 break;
         }
@@ -180,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 移除不需要的视图
      */
     private void removeAllView(){
-        for (int i = 0;i < mBottomlayout.getChildCount();i++){
+        for (int i = 0;i < mBodyLayout.getChildCount();i++){
             mBodyLayout.getChildAt(i).setVisibility(View.GONE);
         }
     }

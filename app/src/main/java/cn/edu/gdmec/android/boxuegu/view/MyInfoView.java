@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
@@ -43,7 +43,7 @@ public class MyInfoView {
         mCurrentView = mInflater.inflate(R.layout.main_view_myinfo,null);
         ll_head = (LinearLayout) mCurrentView.findViewById(R.id.ll_head);
         iv_head_icon = (ImageView) mCurrentView.findViewById(R.id.iv_head_icon);
-        rl_course_history = (RelativeLayout) mCurrentView.findViewById(R.id.iv_course_historyicon);
+        rl_course_history = (RelativeLayout) mCurrentView.findViewById(R.id.rl_course_history);
         rl_setting = (RelativeLayout) mCurrentView.findViewById(R.id.rl_setting);
         tv_user_name = (TextView) mCurrentView.findViewById(R.id.tv_user_name);
         mCurrentView.setVisibility(View.VISIBLE);
@@ -68,7 +68,7 @@ public class MyInfoView {
                 if (readLoginStatus()){
                     //跳转到播放记录界面
                 }else{
-                    Toast.makeText(mContext,"您还未登录，请先登录",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext,"您还未登录，请先登录", Toast.LENGTH_SHORT).show();
 
                 }
             }
