@@ -56,6 +56,8 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             //跳转到修改密码界面
+                Intent intent = new Intent(SettingActivity.this,ModifyPswActivity.class);
+                startActivity(intent);
             }
         });
         //设置密保的点击事件
