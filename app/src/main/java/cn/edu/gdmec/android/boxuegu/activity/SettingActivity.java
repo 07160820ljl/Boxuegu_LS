@@ -18,8 +18,8 @@ public class SettingActivity extends AppCompatActivity {
     private TextView tv_main_title;
     private TextView tv_back;
     private RelativeLayout rl_title_bar;
-    private RelativeLayout rl_modify_psw,rl_security_setting,rl_exit_login;
-    public static  SettingActivity instance = null;
+    private RelativeLayout rl_modify_psw, rl_security_setting, rl_exit_login;
+    public static SettingActivity instance = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +43,8 @@ public class SettingActivity extends AppCompatActivity {
         rl_title_bar.setBackgroundColor(Color.parseColor("#30B4FF"));
         rl_modify_psw = (RelativeLayout) findViewById(R.id.rl_modify_psw);
         rl_security_setting = (RelativeLayout) findViewById(R.id.rl_security_setting);
-        rl_exit_login = (RelativeLayout)findViewById(R.id.rl_exit_login);
-        tv_back.setOnClickListener(new View.OnClickListener(){
+        rl_exit_login = (RelativeLayout) findViewById(R.id.rl_exit_login);
+        tv_back.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -55,8 +55,8 @@ public class SettingActivity extends AppCompatActivity {
         rl_modify_psw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //跳转到修改密码界面
-                Intent intent = new Intent(SettingActivity.this,ModifyPswActivity.class);
+                //跳转到修改密码界面
+                Intent intent = new Intent(SettingActivity.this, ModifyPswActivity.class);
                 startActivity(intent);
             }
         });
@@ -65,31 +65,35 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //跳转到设置密保界面
+                Intent intent = new Intent(SettingActivity.this,FindPswActivity.class);
+                intent.putExtra("from","security");
+                startActivity(intent);
             }
         });
         //退出登录的点击事件
         rl_exit_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SettingActivity.this,"退出登录成功",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingActivity.this, "退出登录成功", Toast.LENGTH_SHORT).show();
                 //清除登录状态和登录时的用户名
                 clearLoginStatus();
                 //退出登录成功后把退出成功的状态传递到MainActivity中
                 Intent data = new Intent();
-                data.putExtra("isLogin",false);
-                setResult(RESULT_OK,data);
+                data.putExtra("isLogin", false);
+                setResult(RESULT_OK, data);
                 SettingActivity.this.finish();
             }
         });
     }
-    private void clearLoginStatus(){
+
+    private void clearLoginStatus() {
         SharedPreferences sp = getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
         //获取编辑器
         SharedPreferences.Editor editor = sp.edit();
         //清除登录状态
-        editor.putBoolean("isLogin",false);
+        editor.putBoolean("isLogin", false);
         //清除用户名
-        editor.putString("loginUserName","");
+        editor.putString("loginUserName", "");
         //提交修改
         editor.commit();
     }
