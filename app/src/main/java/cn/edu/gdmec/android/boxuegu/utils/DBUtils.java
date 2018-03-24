@@ -2,6 +2,7 @@ package cn.edu.gdmec.android.boxuegu.utils;
 
 import android.content.ContentValues;
 import android.content.Context;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -38,7 +39,7 @@ public class DBUtils {
         db.insert(SQLiteHelper.U_USERINFO,null,cv);
     }
     /**
-     * 获取个人呢资料信息
+     * 获取个人资料信息
      */
     public UserBean getUserInfo(String userName){
         String sql = "SELECT * FROM "+ SQLiteHelper.U_USERINFO+" WHERE userName=?";

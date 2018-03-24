@@ -22,12 +22,12 @@ public class SQLiteHelper extends SQLiteOpenHelper{
         /**
          * 创建个人信息表
          */
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + U_USERINFO + "("
-        + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-        + "username VARCHAR,"
-        + "nickName VARCAHR,"
-        + "sex VARCHAR,"
-        + "signature VARCAHR"
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + U_USERINFO + "( "
+        + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        + "userName VARCHAR, "
+        + "nickName VARCHAR, "
+        + "sex VARCHAR, "
+        + "signature VARCHAR"
         + ")");
 
     }

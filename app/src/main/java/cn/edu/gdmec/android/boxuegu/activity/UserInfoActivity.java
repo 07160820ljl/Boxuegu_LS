@@ -90,7 +90,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
      * @param bean
      */
 
-    public void setValue(UserBean bean) {
+    private void setValue(UserBean bean) {
         tv_nickName.setText(bean.nickName);
         tv_user_name.setText(bean.userName);
         tv_sex.setText(bean.sex);
@@ -130,7 +130,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                 //flag传递1时表示是修改昵称
                 bdName.putInt("flag",1);
                 //跳转到个人资料修改界面
-                enterActivityResult(ChangeUserInfoActivity.class,CHANGE_NICKNAME,bdName);
+                enterActivityForResult(ChangeUserInfoActivity.class,CHANGE_NICKNAME,bdName);
                 break;
             case R.id.rl_sex:
                 String sex = tv_sex.getText().toString();
@@ -147,7 +147,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                 //flag传递2时表示是修改签名
                 bdsignature.putInt("flag",2);
                 //跳转到个人资料修改界面
-                enterActivityResult(ChangeUserInfoActivity.class,CHANGE_SIGNATURE,bdsignature);
+                enterActivityForResult(ChangeUserInfoActivity.class,CHANGE_SIGNATURE,bdsignature);
                 break;
             default:
                 break;
@@ -190,7 +190,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
      *获取回传数据时需使用的跳转方法，第一个参数to表示需要跳转到的界面
      * 第2个参数requestCode表示一个请求码，第3个参数b表示跳转是传递的数据
      */
-    public void enterActivityResult(Class<?> to, int requestCode,Bundle b){
+    public void enterActivityForResult(Class<?> to, int requestCode,Bundle b){
         Intent i =new Intent(this,to);
         i.putExtras(b);
         startActivityForResult(i,requestCode);
@@ -226,7 +226,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                     if (TextUtils.isEmpty(new_info)){
                         return;
                     }
-                    tv_nickName.setText(new_info);
+                    tv_signature.setText(new_info);
                     //更新数据库中的签名字段
                     DBUtils.getInstance(UserInfoActivity.this).updateUserInfo("signature",new_info,spUserName);
                 }
