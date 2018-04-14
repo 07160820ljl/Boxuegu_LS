@@ -36,7 +36,7 @@ public class ExercisesView {
 
     private void initView() {
         mCurrentView = mInflater.inflate(R.layout.main_view_exercises, null);
-        lv_list = ((ListView) mCurrentView).findViewById(R.id.lv_list);
+        lv_list = (ListView) mCurrentView.findViewById(R.id.lv_list);
         adapter = new ExercisesAdapter(mContext);
         initData();
         adapter.setData(eb1);

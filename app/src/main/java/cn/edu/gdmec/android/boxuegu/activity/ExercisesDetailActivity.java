@@ -84,7 +84,7 @@ public class ExercisesDetailActivity extends AppCompatActivity {
         adapter = new ExercisesDetailAdapter(ExercisesDetailActivity.this, new ExercisesDetailAdapter.OnSelectListener() {
             @Override
             public void onSelectA(int position, ImageView iv_a, ImageView iv_b, ImageView iv_c, ImageView iv_d) {
-                //判断如果答案不是4即D选项
+                //判断如果答案不是1即A选项
                 if (eb1.get(position).answer != 1) {
                     eb1.get(position).select = 1;
                 } else {
@@ -122,7 +122,7 @@ public class ExercisesDetailActivity extends AppCompatActivity {
                 switch (eb1.get(position).answer) {
                     case 1:
                         iv_a.setImageResource(R.drawable.exercises_right_icon);
-                        iv_d.setImageResource(R.drawable.exercises_error_icon);
+                        iv_b.setImageResource(R.drawable.exercises_error_icon);
                         break;
                     case 2:
                         iv_b.setImageResource(R.drawable.exercises_right_icon);
